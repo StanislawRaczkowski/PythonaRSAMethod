@@ -14,37 +14,36 @@ def getpq():
           "(Note that those random chosen numbers \n"
           "will be from between 2^4 and 2^16. Also note that\n"
           "inserting RANDOM for one input will make both numbers random):\n")
-    p = input("Please, insert p: ")
-    q = input("Please, insert q: ")
-#     Losowanie wpierw:
-    if p or q == "RANDOM":
-        p = random.randint(2 ** 4, 2 ** 16)
-        while not isPrime(p):
+    while True:
+        p = input("Please, insert p: ").strip()
+        q = input("Please, insert q: ").strip()
+    #     Losowanie wpierw:
+        if p == "RANDOM" or q == "RANDOM":
             p = random.randint(2 ** 4, 2 ** 16)
-        q = random.randint(2 ** 4, 2 ** 16)
-        while not isPrime(q):
+            while not isPrime(p):
+                p = random.randint(2 ** 4, 2 ** 16)
             q = random.randint(2 ** 4, 2 ** 16)
-        while p == q:
-            q = random.randint(2 ** 4, 2 ** 16)
+            while not isPrime(q):
+                q = random.randint(2 ** 4, 2 ** 16)
+            while p == q:
+                q = random.randint(2 ** 4, 2 ** 16)
 
-        print(f"> Randomly selected primes: p = {p}, q = {q}")
-        return p, q
-#     Opcja wpisania normalnie:
-    if p and q != "RANDOM":
-        try:
-            val = int(p)
-        except ValueError:
-            print("That's not an int!")
-        try:
-            val = int(q)
-        except ValueError:
-            print("That's not an int!")
-        if isPrime(p) or isPrime(q) is False or p == q:
-            print("Wrong input, numbers are not prime or are equal.")
-            getpq()
-        else:
-            print(f"> Selected primes: p = {p}, q = {q}")
+            print(f"> Randomly selected primes: p = {p}, q = {q}")
             return p, q
+    #     Opcja wpisania normalnie:
+        if (p and q) != "RANDOM":
+            try:
+                p_val = int(p)
+                q_val = int(q)
+            except ValueError:
+                print("That's not an int! Please try again.\n")
+                continue
+            if (isPrime(p_val) or isPrime(q_val)) is False or p == q:
+                print("Wrong input, numbers are not prime or are equal.")
+                continue
+            else:
+                print(f"> Selected primes: p = {p}, q = {q}")
+                return p, q
 
 
 getpq()
