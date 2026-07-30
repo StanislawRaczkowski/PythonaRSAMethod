@@ -27,9 +27,9 @@ def getpq():
                 q = random.randint(2 ** 4, 2 ** 16)
             while p == q:
                 q = random.randint(2 ** 4, 2 ** 16)
-
-            print(f"> Randomly selected primes: p = {p}, q = {q}")
-            return p, q
+            n = p * q
+            print(f"> Selected primes: p = {p}, q = {q}, n = p*q = {n}")
+            return p, q, n
     #     Opcja wpisania normalnie:
         if (p and q) != "RANDOM":
             try:
@@ -42,8 +42,10 @@ def getpq():
                 print("Wrong input, numbers are not prime or are equal.")
                 continue
             else:
-                print(f"> Selected primes: p = {p}, q = {q}")
-                return p, q
+                n = p * q
+                print(f"> Selected primes: p = {p}, q = {q}, n = p*q = {n}")
+
+                return p, q, n
 
 
-getpq()
+# getpq()
