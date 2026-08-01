@@ -5,4 +5,4 @@ def dcalc(e, Phi):
     # pow is a power function, build in python. With a power of -1 and a Phi as a third argument, it
     # computes a modular multiplivative inverse of e modulo Phi(n).
     return d
-# print(dcalc(5, 2))
+# print(dcalc(5, 2))2
