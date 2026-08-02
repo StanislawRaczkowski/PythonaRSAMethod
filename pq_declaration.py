@@ -45,7 +45,7 @@ def getpq():
                 n = int(p) * int(q)
                 print(f"> Selected primes: p = {p}, q = {q}, n = p*q = {n}")
 
-                return p, q, n
+                return int(p), int(q), int(n)
 
 
 # getpq()
