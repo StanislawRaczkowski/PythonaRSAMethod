@@ -38,11 +38,11 @@ def getpq():
             except ValueError:
                 print("That's not an int! Please try again.\n")
                 continue
-            if (isPrime(p_val) or isPrime(q_val)) is False or p == q:
+            if isPrime(p_val) is False or p == q or isPrime(q_val) is False:
                 print("Wrong input, numbers are not prime or are equal.")
                 continue
             else:
-                n = p * q
+                n = int(p) * int(q)
                 print(f"> Selected primes: p = {p}, q = {q}, n = p*q = {n}")
 
                 return p, q, n
